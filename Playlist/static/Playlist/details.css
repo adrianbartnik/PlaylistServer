@@ -1,0 +1,167 @@
+* { margin: 0; padding: 0; text-decoration: none; outline: none; }
+* code, kbd, samp, pre, tt, var, textarea, input, select, isindex, listing, xmp, plaintext 
+{ font: inherit; font-size: 1em; white-space: normal; }
+* dfn, i, cite, var, address, em { font-style: normal; }
+* th, b, strong, h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+* a, img, a img, iframe, form, fieldset, abbr, acronym, object, applet, table { border: none; }
+* table { border-collapse: collapse; border-spacing: 0; }
+* caption, th, td, center { text-align: left; vertical-align: top; }
+* q { quotes: "" ""; }
+* ul, ol, dir, menu { list-style: none; }
+* sub, sup { vertical-align: baseline; }
+* a { color: inherit; }
+* hr { display: none; } 
+font { color: inherit !important; font: inherit !important; color: inherit !important; }
+marquee { overflow: inherit !important; -moz-binding: none; }
+blink { text-decoration: none; }
+nobr { white-space: normal; }
+
+html {
+  background-color: #AAEBFF;
+  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+div {
+border-radius: 5px;
+}
+
+#content {
+  background-color: #5CE8DC;
+  margin-top: 50px;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  margin-bottom: 25;
+}
+
+#header {
+  background-color: #72FFC2;
+  height: 70px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+#title {
+  margin: 0 auto 0 auto;
+  width: 400px;
+  text-align: center;
+}
+
+#overviewlink {
+  /*background:#ccc;*/
+  margin: 0 auto 0 auto;
+  width: 200px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#addTitle{
+  background-color: #72FFC2;
+  height: 40px;
+  width: 600px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+
+#allTracks{
+  margin-left: auto;
+  margin-right: auto;
+  width: 630px;
+  margin-bottom: 10px;
+  background-color: #5CE87C; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.track {
+  width: 550px;
+  display: table;
+  margin: 0 auto 6 auto;
+  height: 35px;
+  background-color: #72FFC2;
+  clear: both;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.trackText {
+  width: 450px;
+  float: left;
+}
+
+#deleteButton {
+  float:right;
+  margin-right: 30px;
+}
+
+#DeleteButtonImage {
+  border: none;
+  height: 20px;
+  width: 20px;
+}
+
+#controll {
+  width: 550px;
+  margin: 0 auto 10 auto;
+  height: 35px;
+  background-color: blue;
+  display: table;
+  background-color: #72FFC2;
+}
+
+#playAll {
+  display: table;
+  width: 100px;
+  margin: 10 auto 0 auto;
+  text-align: center;
+  background-color: green;
+}
+
+#AddPlaylistBox{
+  background-color: #72FFC2;
+  height: 40px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#AvailablePlaylists{
+  margin-left: auto;
+  margin-right: auto;
+  width: 630px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  background-color: #5CE87C; 
+}
+
+.trackOverview {
+  background-color: #87E075;
+  margin-right: 5px;
+  font-size: 20pt;
+  margin-bottom: 3px;
+}
+
+.trackOverview:hover { 
+  background-color:silver; 
+}
+
+#AvaPlaylistHeading {
+  margin-bottom: 10px;
+  text-align: center;
+}

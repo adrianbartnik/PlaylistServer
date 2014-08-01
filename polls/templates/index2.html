@@ -1,0 +1,28 @@
+<html>
+  <head>
+  <title>Cats</title>
+
+
+
+  </head>
+
+  <body>
+  <h1>Heading</h1>
+
+
+  <div id="player"></div>
+
+  </body>
+    <script src="http://connect.soundcloud.com/sdk.js"></script>
+  <script>
+  SC.initialize({
+    client_id: "b4c0cbf752c806f6906499259aa0120b"
+  });
+  SC.get("/groups/55517/tracks", {limit: 1}, function(tracks){
+    alert("Latest track: " + tracks[0].title);
+  });
+
+  SC.oEmbed("http://soundcloud.com/forss/sets/soulhack", {color: "ff0066"},  document.getElementById("player"));
+
+  </script>
+<html>
