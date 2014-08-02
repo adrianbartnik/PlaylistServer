@@ -63,6 +63,7 @@ $(document).ready(function(){
 //  $("#ytplayer")[0].setAttribute("src", link.replace("watch?v=","embed/"));
 //  $("#ytplayer")[0].setAttribute("style", "display:inline");
 
+        $("#ytplayer").css("display", "block");
   player = new YT.Player("ytplayer", {
     height: 390,
     width: 700,
@@ -86,6 +87,7 @@ $(document).ready(function(){
     } else{
       element = event.target;
     }
+        $("#scplayer").css("display", "block");
 
   SC.oEmbed(element.getAttribute("url"), {auto_play: true}, function(oembed){
     console.log("oEmbed response: ", oembed);
@@ -93,6 +95,7 @@ $(document).ready(function(){
     scWidget = SC.Widget($("#scplayer").children()[0]);
     scWidget.bind(SC.Widget.Events.FINISH, function(){
       if(playAll == true){
+        $("#scplayer").css("display", "none");
         if($(".track").length > current){
           current = current + 1;
           $(".track")[current].click();
@@ -121,6 +124,7 @@ function onPlayerStateChange(event){
   if(event.data == 0){
     if(playAll == true){
       if($(".track").length > current){
+        $("#ytplayer").css("display", "none");
         current = current + 1;
         $(".track")[current].click();
       }

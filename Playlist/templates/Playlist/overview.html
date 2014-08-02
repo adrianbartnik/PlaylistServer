@@ -4,7 +4,7 @@
   <div id="AddPlaylistBox">
     <form action="{% url Playlist:overview %}" method="post">
       {% csrf_token %}
-      <label for="playlistname">Playlist name</label>
+      <label for="playlistname">Create new playlist</label>
       <input type="text" name="name" id="playlistname" value="playlistname" />
       <input type="submit" value="Create" />
     </form>

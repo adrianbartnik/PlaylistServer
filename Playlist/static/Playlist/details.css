@@ -17,7 +17,7 @@ blink { text-decoration: none; }
 nobr { white-space: normal; }
 
 html {
-  background-color: #AAEBFF;
+  background-color: #246D7F;
   font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: 100;
   letter-spacing: 1px;
@@ -28,7 +28,7 @@ border-radius: 5px;
 }
 
 #content {
-  background-color: #5CE8DC;
+  background-color: #73AAB8;
   margin-top: 50px;
   width: 700px;
   margin-left: auto;
@@ -39,7 +39,7 @@ border-radius: 5px;
 }
 
 #header {
-  background-color: #72FFC2;
+  background-color: #A0ECFF; 
   height: 70px;
   width: 600px;
   margin-left: auto;
@@ -63,7 +63,7 @@ border-radius: 5px;
 }
 
 #addTitle{
-  background-color: #72FFC2;
+  background-color: #A0ECFF;
   height: 40px;
   width: 600px;
   margin-top: 10px;
@@ -79,7 +79,7 @@ border-radius: 5px;
   margin-right: auto;
   width: 630px;
   margin-bottom: 10px;
-  background-color: #5CE87C; 
+  background-color: #A0ECFF; 
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -89,7 +89,7 @@ border-radius: 5px;
   display: table;
   margin: 0 auto 6 auto;
   height: 35px;
-  background-color: #72FFC2;
+  background-color: #80BDCC; 
   clear: both;
   text-align: center;
   border-radius: 5px;
@@ -117,7 +117,7 @@ border-radius: 5px;
   height: 35px;
   background-color: blue;
   display: table;
-  background-color: #72FFC2;
+  background-color: #A0ECFF;
 }
 
 #playAll {
@@ -129,7 +129,7 @@ border-radius: 5px;
 }
 
 #AddPlaylistBox{
-  background-color: #72FFC2;
+  background-color: #A0ECFF;
   height: 40px;
   width: 600px;
   margin-left: auto;
@@ -147,12 +147,12 @@ border-radius: 5px;
   padding-bottom: 10px;
   padding-top: 10px;
   margin-bottom: 10px;
-  background-color: #5CE87C; 
+  background-color: #A0ECFF;
 }
 
 .trackOverview {
-  background-color: #87E075;
   margin-right: 5px;
+  background-color: #80BDCC; 
   font-size: 20pt;
   margin-bottom: 3px;
 }
