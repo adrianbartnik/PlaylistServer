@@ -1,4 +1,7 @@
 var scWidget = null;
+var playAll = false;
+var current = 0;
+var ytplayer;
 
 var getSoundcloudData = function(){
   return function(data, textStatus, jqXHR){
@@ -57,8 +60,23 @@ $(document).ready(function(){
   var pos = link.indexOf('&');
   if (pos > 0)
     link = link.substring(0, pos);
-  $("#ytplayer")[0].setAttribute("src", link.replace("watch?v=","embed/"));
-  $("#ytplayer")[0].setAttribute("style", "display:inline");
+//  $("#ytplayer")[0].setAttribute("src", link.replace("watch?v=","embed/"));
+//  $("#ytplayer")[0].setAttribute("style", "display:inline");
+
+  player = new YT.Player("ytplayer", {
+    height: 390,
+    width: 700,
+    videoId: getYTID(link),
+    playerVars: {
+      "autoplay" : 1
+    },
+    events: {
+      "onReady" : onPlayerReady,
+      "onStateChange" : onPlayerStateChange,
+      "onError" : onError
+  }
+  })
+
   });
 
   $(".track[plattform*=1]").click(function(){
@@ -73,17 +91,45 @@ $(document).ready(function(){
     console.log("oEmbed response: ", oembed);
     $("#scplayer").html(oembed.html);
     scWidget = SC.Widget($("#scplayer").children()[0]);
-    scWidget.bind(SC.Widget.Events.FINISH, function(){alert("test")});
+    scWidget.bind(SC.Widget.Events.FINISH, function(){
+      if(playAll == true){
+        if($(".track").length > current){
+          current = current + 1;
+          $(".track")[current].click();
+        }
+      }
+    });
   });
   });
 
   $("#playAll").click(function(){
-    alert("hallo");
+    current = 0;
+    playAll = true;
+    $(".track")[0].click();
   });
 
 });
 
+function onPlayerReady(event){
+}
 
+function onError(event){
+  console.log(event.data);
+}
+
+function onPlayerStateChange(event){
+  if(event.data == 0){
+    if(playAll == true){
+      if($(".track").length > current){
+        current = current + 1;
+        $(".track")[current].click();
+      }
+    }
+  }
+}
+
+function onYouTubeIframeAPIReady(){
+}
 
 function validateSC(url){
   var regexp = /^https?:\/\/(soundcloud.com|snd.sc)\/(.*)$/;

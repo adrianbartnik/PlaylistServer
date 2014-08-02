@@ -5,6 +5,7 @@
 {% block imports %}
 <script src="http://connect.soundcloud.com/sdk.js"></script>
 <script src="https://w.soundcloud.com/player/api.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}Playlist/jquery.js" %}></script>
 <script type="text/javascript" src="{{ STATIC_URL }}Playlist/PlaylistDetails.js" %}></script>
 {% endblock %}
@@ -54,10 +55,7 @@
 
   <div id=player> 
     <div id="scplayer"></div>
-    <iframe id="ytplayer" type="text/html" width="700" height="390"
-      style="display:none"
-      src=""
-      frameborder="0"/></iframe>
+    <div id="ytplayer"></div>
   </div>
 </div>
 {% endblock %}
