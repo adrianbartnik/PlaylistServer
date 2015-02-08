@@ -1,20 +1,28 @@
 {% extends "Playlist/base.html" %}
 
 {% block content %}
+<div>{% if user.is_authenticated %}
+  <h1>We say... hello {{ user.username }}!</h1>
+  <a href="{% url 'Playlist:logout' %}">Logout</a>
   <div id="AddPlaylistBox">
-    <form action="{% url Playlist:overview %}" method="post">
+    <form action="{% url 'Playlist:overview' %}" method="post">
       {% csrf_token %}
       <label for="playlistname">Create new playlist</label>
       <input type="text" name="name" id="playlistname" value="playlistname" />
       <input type="submit" value="Create" />
     </form>
   </div>
-  <div id="AvailablePlaylists">
-    <h2 id="AvaPlaylistHeading">Available Playlists</h2>
-    <ul>
-      {% for p in playlists %}
-      <li class="trackOverview"><a href="{% url Playlist:playlistdetails p.title%}">- {{ p.title }}</a></li>
-      {% endfor %}
-    </ul>
-  </div>
+  {% else %}
+  <a href="{% url 'Playlist:register' %}">Register now</a>
+  <a href="{% url 'Playlist:login' %}">Login</a>
+  {% endif %}
+</div>
+<div id="AvailablePlaylists">
+  <h2 id="AvaPlaylistHeading">Available Playlists</h2>
+  <ul>
+    {% for p in playlists %}
+    <li class="trackOverview"><a href="{% url 'Playlist:playlistdetails' p.title%}">- {{ p.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}

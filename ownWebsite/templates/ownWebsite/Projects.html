@@ -1,0 +1,16 @@
+{% extends "ownWebsite/base.html" %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+<h3>Here are some of my sideprojects</h3>
+<div id="catify-description">
+  <span id="catify-text"><strong>Catify</strong> Replaces all images on a webside with cat images. Just drag and drop it to your bookmarks, to try it out on any website.</span>
+  <a id="catify" source="https://www.flickr.com/photos/dpphotoieper/8726240030" href="javascript:var%20i=0,h=0,w=0,t=0,tmp=0;function%20getLink(height,width){return'http://placekitten.com/g/'+height+'/'+width};function%20sleep(milliseconds){var%20start=new Date().getTime();for(var i=0;i<1e7;i++){if((new%20Date().getTime()-start)>milliseconds){break}}}t=document.body.getElementsByTagName('img');for(i=0;i<t.length;i++){h=t[i].height;w=t[i].width;if(h>0&&w>0){t[i].src=getLink(w,h);sleep(0.01)}}function%20replaceImages(array){for(i=0;i<array.length;i++){if(document.defaultView.getComputedStyle(array[i]).backgroundImage!='none'){tmp=document.defaultView.getComputedStyle(array[i]);h=~~tmp.height.slice(0,-2);w=~~tmp.width.slice(0,-2);t[i].setAttribute('style','background-image:%20url('+getLink(h,w)+');background-position:initial');sleep(0.01)}}}t=document.getElementsByTagName('a');replaceImages(t);t=document.getElementsByTagName('div');replaceImages(t);t=document.getElementsByTagName('li');replaceImages(t);">
+  </a>
+</div>
+<div id="textify-description">
+  <span id="textify-text"><strong>Textify</strong> Replaces all text on a website by X. Just drag and drop it to your bookmarks, to try it out on any website.</span>
+  <a id="textify" href="javascript:function walkTheDOM(node,func){func(node);node=node.firstChild;while(node){walkTheDOM(node,func);node = node.nextSibling;}}walkTheDOM(document.body,function(node){if(node.nodeType==3){if(/\S/.test(node.textContent)){for(var i=0,e='';i<node.textContent.length;i++){if(/\S/.test(node.textContent.charAt(i))){e+='x';}else{e+=' ';}}node.textContent=e;}}});"></a>
+</div>
+{% endblock %}

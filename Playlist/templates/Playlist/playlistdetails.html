@@ -16,11 +16,12 @@
       <h1 >{{ playlist.title }}</h1>
     </div>
     <div id="overviewlink">
-      <a href="{% url Playlist:overview %}">back</a>
+      <a href="{% url 'Playlist:overview' %}">back</a>
     </div>
   </div>
+  {% if CanEdit %}
   <div id="addTitle">
-    <form action="{% url Playlist:playlistdetails playlist.title %}" method="post">
+    <form action="{% url 'Playlist:playlistdetails' playlist.title %}" method="post">
       {% csrf_token %}
       <label for="new_song">New song title</label>
       <input type="text" name="url" id="songURL" value="" />
@@ -29,6 +30,7 @@
       <input type="submit" value="Add" />
     </form>
   </div>
+  {% endif %}
 
   <div id="allTracks">
     <div id="controll">
@@ -40,7 +42,7 @@
       {% for t in playlist.track_set.all %}
       <li class="track" plattform="{{ t.plattform }}" listitem="{{ forloop.counter0 }}" url="{{ t.url }}">
       <div class="trackText">{{ t.title }}</div>
-      <form action="{% url Playlist:playlistdetails playlist.title %}" method="post">
+      <form action="{% url 'Playlist:playlistdetails' playlist.title %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="deltitle" value="{{ t.id }}" />
         <button type="submit" id="DeleteButton" value="Delete" />

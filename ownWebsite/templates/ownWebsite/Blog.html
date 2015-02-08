@@ -1,0 +1,17 @@
+{% extends "ownWebsite/base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+
+      {% for p in posts %}
+        <h1>{{ p.title }}</h1>
+        <h6>{{ p.pub_date }}</h6>
+        <h4>{{ p.text }}</h4>
+      {% endfor %}
+
+      {% if not all %}
+        <a href={% url 'ownWebsite:blog' %}?all=true>My older posts</a>
+      {% endif %}
+
+{% endblock %}

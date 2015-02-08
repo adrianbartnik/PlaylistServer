@@ -9,4 +9,6 @@ urlpatterns = patterns('',
 
     url(r"^polls/", include("polls.urls")),
     url(r"^playlist/", include("Playlist.urls", app_name="PlaylistApp", namespace="Playlist")),
+    
+    url(r"^website/", include("ownWebsite.urls", app_name="ownWebsite", namespace="ownWebsite")),
 )

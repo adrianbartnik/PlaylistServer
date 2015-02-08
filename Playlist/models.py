@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Playlist(models.Model):
     title = models.CharField(max_length=200)
@@ -19,3 +20,14 @@ class Track(models.Model):
 
     def __unicode__(self):
         return self.title 
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+
+    website = models.URLField(blank=True)
+    picture = models.ImageField(upload_to='profile_images', blank=True)
+
+    playlists = models.ManyToManyField(Playlist)
+
+    def __unicode__(self):
+        return self.user.username
