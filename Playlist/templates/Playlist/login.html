@@ -1,24 +1,27 @@
 {% extends "Playlist/base.html" %}
 
 {% block title %}Login{% endblock %} 
+            
+{% block navigation %}
+{% endblock %}
 
 {% block content %}
 
-<h1>Login to Playlist Playlist Playlist application</h1>
+<h3>Login to Playomat</h3>
 
 {% if error %}
 <h3 style="color: red;">Invalid login. Try again.</h3>
 {% endif %}
 
-<form id="login_form" method="post" action="{% url 'Playlist:login' %}">
+<form id="loginform" method="post" action="{% url 'Playlist:login' %}">
   {% csrf_token %}
-  Username: <input type="text" name="username" value="" size="50" />
-  <br />
-  Password: <input type="password" name="password" value="" size="50" />
-  <br />
-
-  <input type="submit" value="submit" />
+  <div class="row">
+    <div class="col-md-4">Username: <input type="text" name="username" value=""  /></div>
+    <div class="col-md-4">Password: <input type="password" name="password" value=""  /></div>
+    <div class="col-md-4"><input class="btn btn-default" type="submit" value="Login" /></div>
+  </div>
 </form>
-
-<a href="{% url 'Playlist:overview' %}" style="text-align: center; font-weight: bold;">Back to the homepage</a>
+<div class="text-center">
+  <a href="{% url 'Playlist:overview' %}" style="font-size: 20px;">Back to the homepage</a>
+</div>
 {% endblock %}

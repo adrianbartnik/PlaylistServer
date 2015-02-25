@@ -1,28 +1,21 @@
 {% extends "Playlist/base.html" %}
 
 {% block content %}
-<div>{% if user.is_authenticated %}
-  <h1>We say... hello {{ user.username }}!</h1>
-  <a href="{% url 'Playlist:logout' %}">Logout</a>
-  <div id="AddPlaylistBox">
-    <form action="{% url 'Playlist:overview' %}" method="post">
-      {% csrf_token %}
-      <label for="playlistname">Create new playlist</label>
-      <input type="text" name="name" id="playlistname" value="playlistname" />
-      <input type="submit" value="Create" />
-    </form>
-  </div>
-  {% else %}
-  <a href="{% url 'Playlist:register' %}">Register now</a>
-  <a href="{% url 'Playlist:login' %}">Login</a>
-  {% endif %}
-</div>
-<div id="AvailablePlaylists">
-  <h2 id="AvaPlaylistHeading">Available Playlists</h2>
-  <ul>
+  <h3>Share playlists with you friends with this simple website!</h3>
+<div class="list-group" id="AvailablePlaylists">
+  <h2 class="text-center" id="AvaPlaylistHeading">Available Playlists</h2>
     {% for p in playlists %}
-    <li class="trackOverview"><a href="{% url 'Playlist:playlistdetails' p.title%}">- {{ p.title }}</a></li>
+    <a class="list-group-item" href="{% url 'Playlist:playlistdetails' p.title%}"><h3>{{ p.title }}</h3></a>
     {% endfor %}
-  </ul>
 </div>
+  {% if user.is_authenticated %}
+    <div class="text-center center-block" id="addTitle">
+      <form action="{% url 'Playlist:overview' %}" method="post">
+        {% csrf_token %}
+        <label for="playlistname">Create new playlist</label>
+        <input type="text" name="name" size=50 id="playlistname" value="Your Name" />
+        <input class="btn btn-default" type="submit" value="Create" />
+      </form>
+    </div>
+  {% endif %}
 {% endblock %}

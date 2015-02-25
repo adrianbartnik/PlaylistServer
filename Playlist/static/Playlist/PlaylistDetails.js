@@ -9,7 +9,7 @@ var getSoundcloudData = function(){
     $("#songTitle")[0].setAttribute("value", data.title);
     $("#songURL")[0].setAttribute("value", data.permalink_url);
     $("#plattform")[0].setAttribute("value", 1);
-    $("#addTitle").css("background-color", "green");
+    $("#addTitle").css("background-color", "#99F3A4");
 
   }
 }
@@ -20,7 +20,7 @@ var getYoutubeData = function(url){
     $("#songTitle")[0].setAttribute("value", data.items[0].snippet.title);
     $("#songURL")[0].setAttribute("value", url);
     $("#plattform")[0].setAttribute("value", 0);
-    $("#addTitle").css("background-color", "green");
+    $("#addTitle").css("background-color", "#99F3A4");
   }
 }
 
@@ -51,7 +51,9 @@ $(document).ready(function(){
 
   $(".track[plattform*=0]").click(function(){
     var element = ""
-    if(event.srcElement.className=="trackText"){
+    if(event.target.parentElement.className.indexOf("trackText") > -1){
+      element = event.target.parentElement.parentElement;
+    } else if(event.target.className.indexOf("trackText") > -1){
       element = event.target.parentElement;
     } else{
       element = event.target;
@@ -82,7 +84,9 @@ $(document).ready(function(){
 
   $(".track[plattform*=1]").click(function(){
     var element = ""
-    if(event.srcElement.className=="trackText"){
+    if(event.target.parentElement.className.indexOf("trackText") > -1){
+      element = event.target.parentElement.parentElement;
+    } else if(event.target.className.indexOf("trackText") > -1){
       element = event.target.parentElement;
     } else{
       element = event.target;

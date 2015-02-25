@@ -6,7 +6,7 @@
 <strong>Thank you for registering</strong>
 <a href='{% url "Playlist:overview" %}'>To startpage</a>
 {% else %}
-<strong>Register here</strong>
+<h3>Register here</h3>
 
 <form id="user_form" method="post" action="{% url 'Playlist:register' %}" enctype="multipart/form-data">
   {% csrf_token %}
@@ -14,7 +14,7 @@
   {{ user_form.as_p }}
   {{ profile_form.as_p }}
 
-  <input type="submit" name"submit" value="register" />
+  <input type="submit" class="btn btn-default" name"submit" value="register" />
 </form>
 {% endif %}
 

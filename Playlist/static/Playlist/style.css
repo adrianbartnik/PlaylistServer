@@ -1,0 +1,42 @@
+h3 {
+  /* padding: 0; */
+  margin: 8 8 8 8;
+}
+
+footer p {
+  text-align: center;
+}
+
+#playall {
+  margin-left: 320px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+#addTitle {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#addTitle label {
+  font-size: 20px;
+  font-weight: 100 !important;
+}
+
+#loginform {
+  padding: 20px;
+  font-size: 19px;
+}
+
+#loginform input {
+  margin-top: 6px;
+}
+
+#user_form {
+  padding: 20px;
+}
+
+#user_form label {
+  font-size: 20px;
+  font-weight: 100 !important;
+}
