@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 
 from rest_framework import routers, serializers, viewsets
 
+from RestFramework import views
+
 admin.autodiscover()
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -17,7 +19,8 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
