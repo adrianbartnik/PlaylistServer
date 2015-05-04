@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     "polls",
     "Playlist",
     "ownWebsite",
+    "rest_framework",
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -165,4 +166,10 @@ LOGGING = {
             'propagate': True,
         },
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }
