@@ -135,6 +135,7 @@ INSTALLED_APPS = (
     "Playlist",
     "ownWebsite",
     "rest_framework",
+    "snippets",
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

@@ -30,6 +30,8 @@ urlpatterns = patterns('',
     url(r"^playlist/", include("Playlist.urls", app_name="PlaylistApp", namespace="Playlist")),
     
     url(r"^website/", include("ownWebsite.urls", app_name="ownWebsite", namespace="ownWebsite")),
+    
+    url('^snippets/', include('snippets.urls')),
 
     url('^', include(router.urls)),
     url(r"^api-auth/", include("rest_framework.urls", namespace="rest_framework")),
