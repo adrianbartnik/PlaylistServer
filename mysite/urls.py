@@ -31,7 +31,7 @@ urlpatterns = patterns('',
     
     url(r"^website/", include("ownWebsite.urls", app_name="ownWebsite", namespace="ownWebsite")),
     
-    url('^snippets/', include('snippets.urls')),
+    url('^api/', include('snippets.urls')),
 
     url('^', include(router.urls)),
     url(r"^api-auth/", include("rest_framework.urls", namespace="rest_framework")),
