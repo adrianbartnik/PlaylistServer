@@ -13,8 +13,8 @@ Mainly used to test, experiment and **learn**.
 ## TODO
 + Add REST-API
 + Enable playlist import
-..* Soundcloud
-..* Youtube
+  + Soundcloud
+  + Youtube
 + Profile page for each user
 + Improve start page
 + Invite feature
