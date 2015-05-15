@@ -1,11 +1,14 @@
 {% extends "Playlist/base.html" %}
 
 {% block content %}
+  {% for pm in popupmessages %}
+    <h3>{{ pm }}</h3>
+  {% endfor %}
   <h3>Share playlists with you friends with this simple website!</h3>
 <div class="list-group" id="AvailablePlaylists">
   <h2 class="text-center" id="AvaPlaylistHeading">Available Playlists</h2>
     {% for p in playlists %}
-    <a class="list-group-item" href="{% url 'Playlist:playlistdetails' p.title%}"><h3>{{ p.title }}</h3></a>
+    <a class="list-group-item" href="{% url 'Playlist:playlistdetails' p.name%}"><h3>{{ p.name }}</h3></a>
     {% endfor %}
 </div>
   {% if user.is_authenticated %}

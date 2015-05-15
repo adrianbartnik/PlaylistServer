@@ -2,12 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Playlist(models.Model):
-    title = models.CharField(max_length=200)
-    pub_date = models.DateTimeField("date published")
+    name = models.CharField(max_length=200)
+    pub_date = models.DateTimeField("date published", auto_now_add=True)
 
     def __unicode__(self):
         return self.title 
-
 
 class Track(models.Model):
     playlist = models.ForeignKey(Playlist)
@@ -24,7 +23,9 @@ class Track(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
 
-    website = models.URLField(blank=True)
+    soundcloud = models.CharField(max_length=200, blank=True)
+    youtube = models.CharField(max_length=200, blank=True)
+
     picture = models.ImageField(upload_to='profile_images', blank=True)
 
     playlists = models.ManyToManyField(Playlist)
