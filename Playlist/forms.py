@@ -12,6 +12,10 @@ class UserForm(forms.ModelForm):
         fields = ('username', 'email', 'password')
 
 class UserProfileForm(forms.ModelForm):
+    soundcloud = forms.CharField(required=False)
+    youtube = forms.CharField(required=False)
+    picture = forms.ImageField(help_text="", required=False)
+
     class Meta:
         model = UserProfile
-        fields = ()
+        fields = ('picture', 'youtube', 'soundcloud', )
