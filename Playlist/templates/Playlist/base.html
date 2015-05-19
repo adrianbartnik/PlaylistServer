@@ -18,7 +18,7 @@
             {% block navigation %}
             {% if user.is_authenticated %}
             <li role="presentation"><h4>Hi {{ user.username }}!</h4></li>
-            <li role="presentation"><img style="height: 40px; margin-left: 10px;" src='{{ MEDIA_URL }}{{ user.userprofile.picture.name }}' /></li>
+            <li role="presentation"><a href="settings"><img style="height: 40px; margin-left: 10px;" src='{{ MEDIA_URL }}{{ user.userprofile.picture.name }}' /></a></li>
             <li role="presentation"><a href="{% url 'Playlist:logout' %}">Logout</a></li>
             {% else %}
             <li role="presentation"><a href="{% url 'Playlist:register' %}">Register now</a></li>

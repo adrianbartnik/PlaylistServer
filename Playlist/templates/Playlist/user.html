@@ -1,0 +1,17 @@
+{% extends "Playlist/base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="text-center center-block" id="addTitle">
+  <h3>{{ user.username }}</h3>
+  <h3>{{ user.userprofile.picture }}</h3>
+  {% for playlist in user.userprofile.playlists.all %}
+    <h3>{{ playlist }}</h3>
+  {% endfor %}
+</div>
+{% else %}
+  <h3>You are not logged in!</h3>
+{% endif %}
+
+{% endblock %}

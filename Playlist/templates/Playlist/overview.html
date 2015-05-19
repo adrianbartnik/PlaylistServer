@@ -8,7 +8,7 @@
 <div class="list-group" id="AvailablePlaylists">
   <h2 class="text-center" id="AvaPlaylistHeading">Available Playlists</h2>
     {% for p in playlists %}
-    <a class="list-group-item" href="{% url 'Playlist:playlistdetails' p.name%}"><h3>{{ p.name }}</h3></a>
+    <a class="list-group-item" href="{% url 'Playlist:playlistdetails' p.name %}"><h3>{{ p.name }}</h3></a>
     {% endfor %}
 </div>
   {% if user.is_authenticated %}

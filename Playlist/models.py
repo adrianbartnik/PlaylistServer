@@ -6,7 +6,7 @@ class Playlist(models.Model):
     pub_date = models.DateTimeField("date published", auto_now_add=True)
 
     def __unicode__(self):
-        return self.title 
+        return self.name 
 
 class Track(models.Model):
     playlist = models.ForeignKey(Playlist)

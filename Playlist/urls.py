@@ -9,9 +9,12 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = patterns("", 
     url(r"^$", views.overview, name="overview"),
-    url(r"^register", views.register, name="register"),
-    url(r"^login", views.user_login, name="login"),
+    url(r"^register", views.register_view, name="register"),
+    url(r"^login", views.login_view, name="login"),
     url(r"^logout", views.logout_view, name="logout"),
+    url(r"^settings", views.settings_view, name="settings"),
+    url(r"^user/$", views.user_view, name="user"),
+    url(r"^user/(?P<user_name>\w+)/$", views.user_view, name="user"),
+    url(r"^(?P<playlist_name>\w+)/$", views.playlist_view, name="playlistdetails"),
     url(r'^api/', include(router.urls)),
-    url(r"^(?P<playlist_name>\w+)/$", views.playlistdetails, name="playlistdetails"),
 )

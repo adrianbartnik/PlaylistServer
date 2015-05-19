@@ -1,5 +1,6 @@
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.core.urlresolvers import reverse
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -17,6 +18,10 @@ from rest_framework.reverse import reverse
 
 def overview(request):
     name = request.POST.get("name")
+
+    if name in ['settings', 'user', 'register', 'login', 'logout']:
+        return HttpResponseRedirect(reverse('Playlist:overview'))
+
     if name:
         playlist = Playlist.objects.get_or_create(name=name)[0]
         playlist.save()
@@ -25,10 +30,11 @@ def overview(request):
 
     return render(request, "Playlist/overview.html", {"playlists": allplaylists, "popupmessages": []})
 
-def playlistdetails(request, playlist_name=""):
+def playlist_view(request, playlist_name=""):
     u = request.POST.get("url")
     t = request.POST.get("title")
     p = request.POST.get("plattform")
+
     if t and u and p:
         track = Track(title=t,
                 plattform=p,
@@ -49,7 +55,34 @@ def playlistdetails(request, playlist_name=""):
     
     return render(request, "Playlist/playlistdetails.html", {"playlist":p, 'CanEdit': editable})
 
-def register(request):
+def user_view(request, user_name=""):
+
+    if not user_name:
+        return render(request, "Playlist/user_overview.html", {'users': User.objects.all()[:5]})
+
+    try:
+        user = User.objects.get(username=user_name)
+
+        return render(request, "Playlist/user.html", {})
+
+    except ObjectDoesNotExist:
+        user = None
+        
+    return render(request, "Playlist/user.html", {})
+
+def settings_view(request):
+
+    if request.user.is_authenticated():
+
+        user_form = UserForm(instance=request.user)
+        profile_form = UserProfileForm(instance=request.user.userprofile)
+
+        return render(request, "Playlist/settings.html", {'user_form': user_form, 'profile_form': profile_form})
+
+    else:
+        return render(request, "Playlist/settings.html", {})
+
+def register_view(request):
     registered = False
 
     if request.method == 'POST':
@@ -93,7 +126,7 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('Playlist:overview'))
 
-def user_login(request):
+def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
