@@ -15,7 +15,6 @@ Mainly used to test, experiment and **learn**.
 + Enable playlist import
   + Soundcloud
   + Youtube
-+ Profile page for each user
 + Improve start page
 + Invite feature
 + Social sharing
