@@ -1,3 +1,2 @@
 Create popup message if user registered or login successfully
-Improve user_overview -> predefined class -> multiple sites
-Change playlist mapping similar to soundcloud -> user/playlist/title
+Improve user_overview:Shows alls users under /user -> predefined class -> multiple sites

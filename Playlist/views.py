@@ -23,14 +23,15 @@ def overview(request):
         return HttpResponseRedirect(reverse('Playlist:overview'))
 
     if name:
-        playlist = Playlist.objects.get_or_create(name=name)[0]
+        playlist = Playlist.objects.get_or_create(name=name, owner=request.user.userprofile)[0]
         playlist.save()
-        playlist.userprofile_set.add(request.user.userprofile)
+        # playlist.userprofile_set.add(request.user.userprofile)
+
     allplaylists = Playlist.objects.all()
 
     return render(request, "Playlist/overview.html", {"playlists": allplaylists, "popupmessages": []})
 
-def playlist_view(request, playlist_name=""):
+def playlist_view(request, user_name="", playlist_name=""):
     u = request.POST.get("url")
     t = request.POST.get("title")
     p = request.POST.get("plattform")
@@ -48,10 +49,10 @@ def playlist_view(request, playlist_name=""):
         Track.objects.get(id=delt).delete()
 
     p = get_object_or_404(Playlist, name=playlist_name)
+
     editable = False
-    if request.user.is_authenticated():
-        if request.user.userprofile in Playlist.objects.get(name=playlist_name).userprofile_set.all():
-            editable = True
+    if request.user.is_authenticated() and request.user.id == p.owner_id:
+        editable = True
     
     return render(request, "Playlist/playlistdetails.html", {"playlist":p, 'CanEdit': editable})
 

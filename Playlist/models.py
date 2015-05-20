@@ -5,6 +5,8 @@ class Playlist(models.Model):
     name = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published", auto_now_add=True)
 
+    owner = models.ForeignKey("UserProfile")
+
     def __unicode__(self):
         return self.name 
 
@@ -27,8 +29,6 @@ class UserProfile(models.Model):
     youtube = models.CharField(max_length=200, blank=True)
 
     picture = models.ImageField(upload_to='profile_images', blank=True)
-
-    playlists = models.ManyToManyField(Playlist)
 
     def __unicode__(self):
         return self.user.username

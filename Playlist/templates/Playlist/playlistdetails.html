@@ -17,7 +17,7 @@
   </div>
 {% if CanEdit %}
 <div id="addTitle">
-  <form action="{% url 'Playlist:playlistdetails' playlist.name %}" method="post">
+  <form action="{% url 'Playlist:playlistdetails' playlist.owner.user.username playlist.name %}" method="post">
     {% csrf_token %}
     <label for="new_song">New song title</label>
     <input type="text" name="url" size=50 id="songURL" value="" />
@@ -38,7 +38,7 @@
     <li class="list-group-item track clearfix" plattform="{{ t.plattform }}" listitem="{{ forloop.counter0 }}" url="{{ t.url }}">
       <div class="pull-left trackText"><h3>{{ t.title }}</h3></div>
       <div class="pull-right">
-        <form action="{% url 'Playlist:playlistdetails' playlist.name %}" method="post">
+        <form action="{% url 'Playlist:playlistdetails' p.owner.user.username playlist.name %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="deltitle" value="{{ t.id }}" />
         <input type="submit" class="btn btn-default" id="DeleteButton" value="Delete">
